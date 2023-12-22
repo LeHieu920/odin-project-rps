@@ -43,61 +43,6 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let pscore = 0;
     let cscore = 0;
-    pWin = playRound();
-    if (pWin == null) {
-        pscore = pscore;
-        cscore = cscore;
-    } 
-    else if (pWin) {
-        pscore = pscore + 1;
-    }
-    else {
-        cscore = cscore + 1;
-    }
-    pWin = playRound();
-    if (pWin == null) {
-        pscore = pscore;
-        cscore = cscore;
-    } 
-    else if (pWin) {
-        pscore = pscore + 1;
-    }
-    else {
-        cscore = cscore + 1;
-    }
-    pWin = playRound();
-    if (pWin == null) {
-        pscore = pscore;
-        cscore = cscore;
-    } 
-    else if (pWin) {
-        pscore = pscore + 1;
-    }
-    else {
-        cscore = cscore + 1;
-    }
-    pWin = playRound();
-    if (pWin == null) {
-        pscore = pscore;
-        cscore = cscore;
-    } 
-    else if (pWin) {
-        pscore = pscore + 1;
-    }
-    else {
-        cscore = cscore + 1;
-    }
-    pWin = playRound();
-    if (pWin == null) {
-        pscore = pscore;
-        cscore = cscore;
-    } 
-    else if (pWin) {
-        pscore = pscore + 1;
-    }
-    else {
-        cscore = cscore + 1;
-    }
     console.log(`PS: ${pscore}`);
     console.log(`CS: ${cscore}`);
     if (pscore > cscore) {
