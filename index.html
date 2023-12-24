@@ -3,12 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/myScript.js"></script>
+    <script src="./js/myScript.js" defer></script>
     <title>Odin's Project Rock, Paper and Scissors</title>
 </head>
 <body>
+    <button id="ro">Rock</button>
+    <button id="pa">Paper</button>
+    <button id="sci">Scissors</button>
+
     <script>
+        function getComputerChoiceNew(rps) {
+                rps = Math.floor(Math.random() * 3);
+                switch (rps) {
+                    case 0:
+                        return "R";
+                        break;
+                    case 1:
+                        return "P";
+                        break;
+                    case 2:
+                        return "S";
+                        break;
+                }
+            }
+
+               
+        function playRoundNew(psel, csel) {
+
+                if ((psel == "ro") && (csel == "P")) {
+                    pWin = false;
+                }
+                else if ((psel == "ro") && (csel == "S")) {
+                    pWin = true;
+                }
+                else if ((psel == "pa") && (csel == "R")) {
+                    pWin = true;
+                }
+                else if ((psel == "pa") && (csel == "S")) {
+                    pWin = false;
+                }
+                else if ((psel == "sci") && (csel == "P")) {
+                    pWin = true;
+                }
+                else if ((psel == "sci") && (csel == "R")) {
+                    pWin = false;
+                }
+                /*else {
+                    return "TIES";               
+                }
+                */
+                return pWin;
+            }
         
+            function gameNew() {
+                    let pscore = 0;
+                    let cscore = 0;
+
+                    if (true) {
+                        pscore += 1;
+                    }
+                    else {
+                        cscore += 1;
+                    }
+
+                    console.log(`PS: ${pscore}`);
+                    console.log(`CS: ${cscore}`);
+
+                    if (pscore > cscore) {
+                        console.log(`Player win`);
+                    }
+                    else {
+                        console.log(`Computer win`);
+                    }
+                }
+        
+        const btns = document.querySelectorAll('button');
+
+        btns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                player = btn.id;
+                comp = getComputerChoiceNew();                
+                gameNew(playRoundNew(player, comp));
+            });
+        });
+            
+            /*() => {
+                comp = getComputerChoiceN();
+                console.log(comp);
+                if ((btn.id == "ro") && (comp == "P")) {
+                    //pWin = false;
+                    console.log("C win");
+                }
+                else if ((btn.id == "ro") && (comp == "S")) {
+                    //pWin = true;
+                    console.log("P win");
+                }
+                else if ((btn.id == "pa") && (comp == "R")) {
+                    //pWin = true;
+                    console.log("P win");
+                }
+                else if ((btn.id == "pa") && (comp == "S")) {
+                    //pWin = false;
+                    console.log("C win");
+                }
+                else if ((btn.id == "sci") && (comp == "P")) {
+                    //pWin = true;
+                    console.log("P win");
+                }
+                else if ((btn.id == "sci") && (comp == "R")) {
+                    //pWin = false;
+                    console.log("C win");
+                }
+                else {
+                    //return "TIES";
+                    console.log("TIES");
+                }
+            */                        
+
     </script>
 </body>
 </html>
