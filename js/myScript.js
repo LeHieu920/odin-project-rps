@@ -14,41 +14,57 @@ function getComputerChoice(rps) {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt().toUpperCase();
-    computerSelection = getComputerChoice().toUpperCase();
-    if (computerSelection == "ROCK" && playerSelection == "PAPER") {
+    
+    if (computerSelection == "ROCK" && playerSelection == "pa") {
+        alert("P P, C R");
         pWin = true;
     }
-    else if (computerSelection == "ROCK" && playerSelection == "SCISSORS") {
+    else if (computerSelection == "ROCK" && playerSelection == "sci") {
+        alert("C R, P S");
+        pWin = false;        
+    }
+    else if (computerSelection == "PAPER" && playerSelection == "ro") {
+        alert("C P, P R");
         pWin = false;
     }
-    else if (computerSelection == "PAPER" && playerSelection == "ROCK") {
-        pWin = false;
+    else if (computerSelection == "PAPER" && playerSelection == "sci") {
+        alert("C P, P S");
+        pWin = true;      
     }
-    else if (computerSelection == "PAPER" && playerSelection == "SCISSORS") {
+    else if (computerSelection == "SCISSORS" && playerSelection == "ro") {
+        alert("C S, P R");
         pWin = true;
+        
     }
-    else if (computerSelection == "SCISSORS" && playerSelection == "ROCK") {
-        pWin = true;
-    }
-    else if (computerSelection== "SCISSORS" && playerSelection == "PAPER") {
-        pWin = false;
+    else if (computerSelection== "SCISSORS" && playerSelection == "pa") {
+        alert("P S, P P");
+        pWin = false;       
     }
     else {
         return "TIES";
     }
-    return pWin;
+    return "pWin";
+
   }
 
 function game() {
     let pscore = 0;
     let cscore = 0;
-    console.log(`PS: ${pscore}`);
-    console.log(`CS: ${cscore}`);
+    if (pwin) {
+        pscore += 1;
+    }
+    else {
+        cscore += 1;
+    }
     if (pscore > cscore) {
         console.log(`Player win`);
     }
     else {
         console.log(`Computer win`);
     }
+    console.log(`PS: ${pscore}`);
+    console.log(`CS: ${cscore}`);
 }
+
+
+
