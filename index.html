@@ -7,10 +7,11 @@
     <title>Odin's Project Rock, Paper and Scissors</title>
 </head>
 <body>
-    <button id="ro">Rock</button>
-    <button id="pa">Paper</button>
-    <button id="sci">Scissors</button>
-
+    <div class="container">
+        <button id="ro">Rock</button>
+        <button id="pa">Paper</button>
+        <button id="sci">Scissors</button>
+    </div>
     <script>
         function getComputerChoiceNew(rps) {
                 rps = Math.floor(Math.random() * 3);
@@ -27,9 +28,9 @@
                 }
             }
 
-               
-        function playRoundNew(psel, csel) {
 
+            function playRoundNew(psel, csel) {
+                let pWin;
                 if ((psel == "ro") && (csel == "P")) {
                     pWin = false;
                 }
@@ -54,72 +55,71 @@
                 */
                 return pWin;
             }
-        
+
             function gameNew() {
-                    let pscore = 0;
-                    let cscore = 0;
 
-                    if (true) {
-                        pscore += 1;
-                    }
-                    else {
-                        cscore += 1;
-                    }
+                let pscore;
+                let cscore;
 
+                if (true) {
+                    pscore += 1;
                     console.log(`PS: ${pscore}`);
                     console.log(`CS: ${cscore}`);
+                }
 
-                    if (pscore > cscore) {
-                        console.log(`Player win`);
+                return pscore;
+
+                if (false) {
+                    cscore += 1;
+                    console.log(`PS: ${pscore}`);
+                    console.log(`CS: ${cscore}`);
+                }
+
+                return cscore;
+
+            }
+
+            const btns = document.querySelectorAll('button');
+            const container = document.querySelector('.container');
+            const result = document.createElement('div');
+
+            let sumPScore = 0;
+            let sumCScore = 0;
+
+            btns.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    player = btn.id;
+                    comp = getComputerChoiceNew();
+
+                    if(playRoundNew(player, comp)) {
+                        sumPScore += 1;
+                        console.log(`PS: ${sumPScore}`);
+                        console.log(`CS: ${sumCScore}`);
                     }
                     else {
-                        console.log(`Computer win`);
+                        sumCScore += 1;
+                        console.log(`PS: ${sumPScore}`);
+                        console.log(`CS: ${sumCScore}`);
                     }
-                }
-        
-        const btns = document.querySelectorAll('button');
 
-        btns.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                player = btn.id;
-                comp = getComputerChoiceNew();                
-                gameNew(playRoundNew(player, comp));
+                    if (sumPScore == 5) {  
+                        console.log(`Player win`);                      
+                        result.textContent = 'You win';
+                        container.appendChild(result);
+
+                    }
+                    else if (sumCScore == 5) {
+                        console.log(`Computer win`);                      
+                        result.textContent = 'You loses';
+                        container.appendChild(result);
+                    }
+                });
+                
             });
-        });
-            
-            /*() => {
-                comp = getComputerChoiceN();
-                console.log(comp);
-                if ((btn.id == "ro") && (comp == "P")) {
-                    //pWin = false;
-                    console.log("C win");
-                }
-                else if ((btn.id == "ro") && (comp == "S")) {
-                    //pWin = true;
-                    console.log("P win");
-                }
-                else if ((btn.id == "pa") && (comp == "R")) {
-                    //pWin = true;
-                    console.log("P win");
-                }
-                else if ((btn.id == "pa") && (comp == "S")) {
-                    //pWin = false;
-                    console.log("C win");
-                }
-                else if ((btn.id == "sci") && (comp == "P")) {
-                    //pWin = true;
-                    console.log("P win");
-                }
-                else if ((btn.id == "sci") && (comp == "R")) {
-                    //pWin = false;
-                    console.log("C win");
-                }
-                else {
-                    //return "TIES";
-                    console.log("TIES");
-                }
-            */                        
 
-    </script>
+            
+            
+
+        </script>
 </body>
 </html>
